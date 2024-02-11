@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletim</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    
+    <div>
+        <section id="letra">
+            <h1>Vogal ou consoante?</h1>
+            Digite aqui uma letra: <input type="text" id="letra">
+            <input type="button" value="Verificar" id="botao" onclick="tipoDeLetra()">
+            <div id="resultadoLetra"></div>
+
+            <script>
+                function tipoDeLetra() {
+                    var letra = window.document.querySelector('input#letra').value.toLowerCase()
+                    var resultado = window.document.querySelector('div#resultadoLetra')
+                    if (letra === "a" || letra === "e" || letra ===  "i"  || letra ===  "o" || letra === "u") {
+                        resultado.innerHTML = `A letra "${letra}" é uma <strong>vogal</strong>.`
+                    } else {
+                        resultado.innerHTML = `A letra "${letra}" é uma <strong>consoante</strong>.`
+                    }
+
+                }
+
+            </script>
+        </section>
+    </div>
+    <div>
+        <section id="calculoMedia">
+            <h1>Média semestral</h1>
+                Digite aqui a nota da sua segunda prova:<br><input type="number" id="nota2"><br> <!--digitar segunda nota-->
+                Digite aqui a nota da sua primeira prova:<br><input type="number" id="nota1"><br><!--digitar primeira nota-->
+                <input type="button" value="Calcular média" id="botaoNota2" onclick="calcularMedia()"
+                <div id="resultadoMedia"></div>
+                
+                <script>
+                    var primeiraNota = window.document.querySelector('input#nota1') //primeira nota
+                    var segundaNota = window.document.querySelector('input#nota2') //segunda nota
+                    var calculo = (parseInt(primeiraNota.value) + parseInt(segundaNota.value)) / 2 //calculo
+                    var resultado = window.document.querySelector('div#resultadoMedia')
+                        function calcularMedia() {
+                            if (calculo >= 7) {
+                                resultado.innerHTML = `Parabéns! Sua média semestral é de ${calculo}. Você foi Aprovado!`
+                            } else if (calculo == 10) {
+                                resultado.innerHTML = `Parabens! Sua média semestral é de ${calculo}. Você foi Aprovado com Distinção!`
+                            }
+                            else {
+                                resultado.innerHTML =  `Que pena! Sua média semestral é de ${calculo}. Você foi reprovado!`
+                            }
+        
+                            }
+                </script> 
+        </section>
+    </div>
+    <div>
+        <section>
+            <h1>Qual é o maior número?</h1>
+            Digite o primeiro número:<br><input type="number" id="num1"><br>
+            Agora digite o segundo número:<br><input type="number"  id="num2"><br>
+            Por último, digite o terceito número:<br><input type="number" id="num3"><br>
+            <input type="button" value="Comparar" id="botao" onclick="comparacao()">
+            <div id="resultado"></div>
+            <script>
+                function comparacao() {
+                    var numero1 = parseInt(window.document.querySelector('input#num1').value)
+                    var numero2 = parseInt(window.document.querySelector('input#num2').value)
+                    var numero3 = parseInt(window.document.querySelector('input#num3').value)
+                    var resultado = window.document.querySelector('div#resultado')
+                    if(numero1 > numero2 && numero1 > numero3) {
+                        resultado.innerHTML = `O maior número entre os três números é o ${numero1}.`
+                    } else if(numero2 > numero1 && numero2 > numero3) {
+                        resultado.innerHTML = `O maior número entre os três números é o ${numero2}.`
+                    } else if(numero3 > numero1 && numero3 > numero2) {
+                        resultado.innerHTML = `O maior número entre os três números é o ${numero3}.`
+                    } else {
+                        innerHTML = 'Os números são iguais!'
+                    }
+                }
+            </script>
+        </section>
+    </div>
+    <div>
+        <section>
+            <h1>Trocando valores</h1>
+            Digite um número: <input type="number" id="num1"><br>
+            Digite outro número: <input type="number" id="num2"><br>
+            <button onclick="trocando()">Inverter</button>
+            <script>
+                function trocando() {
+                    var num1 = parseInt(document.querySelector('input#num1').value) //guardando o valor do 1° input na variável e usando o parseInt para transformar a string (valores de input são strings) em numeros inteiros
+                    var num2 = parseInt(document.querySelector('input#num2').value) //guardando o valor do 2° input na variável
+
+                    var aux = num1
+                    num1 = num2  //aqui os valores estão sendo trocados
+                    num2 = aux
+
+                    var resultado = (`O primeiro número era ${aux} e agora é ${num1}!
+                    E o segundo número que era ${num1} agora virou ${aux}!`)
+                    
+                    window.alert("Os valores mudaram!" + resultado)
+                }
+            </script>
+
+        </section>
+    </div>
+    <div>
+        <section>
+            <h1>Qual é o maior e o menor número?</h1>
+            Digite aqui o 1° número: <input type="number" id="numero1"><br>
+            Digite aqui o 2° número: <input type="number" id="numero2"><br>
+            Digite aqui o 3° número: <input type="number" id="numero3"><br>
+            <button onclick="maior()">Verificar maior número</button>
+            <button onclick="menor()">Verificar menor número</button>
+            <div id="resMaior"></div>
+            <div id="resMenor"></div>
+            <script>
+                function maior() {
+                    var numero1 = parseInt(window.document.querySelector('input#numero1').value)
+                    var numero2 = parseInt(window.document.querySelector('input#numero2').value)
+                    var numero3 = parseInt(window.document.querySelector('input#numero3').value)
+                    var resMaior = window.document.querySelector('div#resMaior')
+
+                    var maior = numero1
+
+                    if (numero2 > maior) {
+                        maior = numero2
+                    } else if (numero3 > maior) {
+                        maior = numero3
+                    }
+
+                    resMaior.innerHTML = `O maior número é o ${maior}.`
+                }
+
+                function menor() {
+                    var numero1 = parseInt(window.document.querySelector('input#numero1').value)
+                    var numero2 = parseInt(window.document.querySelector('input#numero2').value)
+                    var numero3 = parseInt(window.document.querySelector('input#numero3').value)
+                    var resMenor = window.document.querySelector('div#resMenor')
+
+                    var menor = numero1
+
+                    if (numero2 < menor) {
+                        menor = numero2
+                    } else if ( numero3 < menor) {
+                        menor = numero3
+                    }
+                    resMenor.innerHTML = `O menor número é o ${menor}.`
+                }
+            </script>
+        </section>
+    </div>
+
+    <!--OBS!!!!! ESSE CÓDIGO DÁ NaN PQ DEU ALGUM B.O COM OS OUTROS CODIGOS E FUNÇÕES AQUI NA MESMA PAGINA MAS EM PÁGINA SEPARADA ELA FUNCIONA DIREITINHO-->
+    <div>
+        <section>
+            <h1>Ordenando números</h1>
+            Digite aqui o 1° número: <input type="number" id="num1"><br>
+            Digite aqui o 2° número: <input type="number" id="num2"><br>
+            Digite aqui o 3° número: <input type="number" id="num3"><br>
+            <button onclick="ordenar()">Ordenar</button>
+            <div id="ordenar"></div>
+            <script>
+                function ordenar() {
+                var numero1 = parseInt(document.querySelector('input#num1').value)
+                var numero2 = parseInt(document.querySelector('input#num2').value)
+                var numero3 = parseInt(document.querySelector('input#num3').value)
+                var ordenados = [numero1, numero2, numero3].sort((a, b) => b - a);
+                document.querySelector('div#ordenar').innerText = "Números ordenados: " + ordenados.join(', ');
+                }
+            </script>
+        </section>
+    </div>
+
+    
+</body>
+</html>

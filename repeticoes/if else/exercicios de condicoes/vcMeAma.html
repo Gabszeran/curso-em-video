@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condições</title>
+    <style>
+        html {
+            font: 62.5%;
+        }
+        h1 {
+            font-size: 3rem;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            font-size: 2rem;
+            font-family: Arial, sans-serif;
+        }
+        input {
+            font-size: 2rem;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Você me ama?</h1>
+    Resposta: <input type="text" id="texto"> <!--input com o espaço para colocar o valor-->
+    <input type="button" value="Verificar" onclick="verificar()"> <!--botão pra verificar-->
+    <div id="resposta"></div> <!--onde vai aparecer a resposta ao valor-->
+    <script>
+        function verificar() {
+            var txt = window.document.querySelector('input#texto') //acessando o input do valor com o DOM
+            var resposta = window.document.querySelector('div#resposta') //acessando a div resposta
+            if (txt.value === "sim") {
+                resposta.innerHTML = `Sua resposta foi <strong>${txt.value}</strong>, então me dá um beijinho que eu também te amo.`
+            } else {
+                resposta.innerHTML = `Sua resposta foi <strong>${txt.value}</strong>, então vai te catar, tchau.`
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eventos DOM</title>
+    <style>
+      div#area {
+        font: normal 1rem Arial;
+        background: violet;
+        color: rgb(250, 243, 234);
+        width: 200px;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!--ao invés de fazer isso e deixar o html poluído...p1-->
+    <!--<div id="area" onclick="clicar()" onmouseenter="mouseEntrar()" onmouseout="mouseSair()">Interaja...</div>-->
+    <div id="area">
+        Interaja...
+    </div>
+    <script>
+        //aqui foi deixado de fora das funções para tornar ela global, mas não é o recomendado, foi só para esse exemplo
+        var area = window.document.getElementById("area")//aqui estou acessando a div por meio do id dela colocando dentro da var area para eu poder manipular ela depois
+        //...p2 usar o addEventListenner: (continuação do comentario sobre a div no html acima)
+        area.addEventListener('click', clicar)//aqui estou dizendo aos listenners que quero um evento e depois vinculando uma função pra quando esse evento acontecer
+        area.addEventListener('mouseenter', mouseEntrar)
+        area.addEventListener('mouseout', mouseSair)
+
+
+      function clicar() {
+        area.innerText = "Clicou!"
+        area.style.background = 'orange'
+      }
+
+      function mouseEntrar() {
+        area.innerText = "Entrou!"
+      }
+
+      function mouseSair() {
+        area.innerText = "Saiu!"
+        area.style.background = 'purple'
+      }
+
+    </script>
+  </body>
+</html>

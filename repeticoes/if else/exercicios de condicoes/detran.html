@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+</head>
+<body>
+    <h1>Sistemas de Multas</h1>
+    Velocidade do carro:<input type="number" name="txtve1" id="txtve1"> Km/h <!--espaço onde vai ser digitado a resposta/valor-->
+    <input type="button" value="Verificar" onclick="calcular()"><!--botão para mostrar o resultado da resposta-->
+    <div id="resultado"></div><!--aqui vai ser mostrado o resultado depois do botão verificar ser clicado-->
+    <script>
+        //função que faz o botão verificar ter uma ação, no caso verificar a condição dada
+        function calcular() {
+            var txtv = window.document.querySelector('input#txtve1') //aqui está sendo acessada o input 'velocidade do carro:' pelo DOM 
+            var resultado = window.document.querySelector('div#resultado') //aqui a div 'resultado'
+            var vel = Number(txtv.value) //aqui o valor do input 'velocidade carro' está sendo convertido em numero (pois está em texto/caixa de texto)
+            resultado.innerHTML = `<p>Sua velocidade atual é de <strong>${vel} Km/h</strong></p>` //aqui a div resultado está sendo alterada para uma string com interpolação com os valores das variáveis
+            if (vel > 60) {
+                resultado.innerHTML += `<p>Você foi <strong>MULTADO</strong> por excesso de velocidade!</p>` //aqui, se a condição for verdadeira, o resultado vai concatenar o resultado com a frase acima com essa aqui
+            }
+            resultado.innerHTML += `<p>Dirija sempre com o cinto de segurança!</p>`  //essa frase vai aparecer concatenadaindependente do resultado
+         }
+    </script>
+</body>
+</html>
